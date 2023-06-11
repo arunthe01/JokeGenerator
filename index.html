@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kablammo&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <style>
+        img{
+            width: 300px;
+            transition: all 0.6s linear;
+            /* height: 200px; */
+        }
+
+        body{
+            background-color: black;
+            color: white;
+        }
+
+        .imgFrame{
+            background-color: white;
+            padding: 20px;
+            margin: auto;
+            margin-top: 40px;
+            width: fit-content;
+            box-shadow: 0px 0px 15px red;
+            transition: all 0.6s linear;
+        }
+
+        .imgFrame:hover{
+            /* transform: scale(1.05); */
+            border-radius: 20px;
+            box-shadow: 0px 0px 15px red, inset 0px 0px 30px rgb(0, 0, 0);
+        }
+
+        .imgFrame:hover img{
+            border-radius: 20px;
+            transform: scale(1.02);
+        }
+
+        .hero{
+            /* margin: auto; */
+           display: flex;
+           position: relative;
+           justify-content: center;
+           align-items: center;
+           margin-top: 100px;
+        }
+        .semiCircle{
+            width: 400px;
+            height: 200px; /* Set height based on width to maintain aspect ratio */
+            border-top-left-radius: 210px;
+            border-top-right-radius: 210px;
+            box-shadow: 0px 0px 1500px solid rgb(134, 134, 255);
+            /* border: 5px solid rgb(243, 0, 0);  */
+            border-bottom: none; /* r*/
+        }
+
+        .imgPng{
+            position:absolute;
+            /* top: -120px;
+            left: 220px; */
+            top:-100px;
+            transition: all 2s linear;
+            animation: scaleUpDown 2s linear 0s infinite both;
+           
+        }
+        
+        .imgPng:hover {
+            transform: scale(1.02);
+        }
+
+        @keyframes scaleUpDown {
+
+            0%{
+                /* rotate: 3deg; */
+            }
+            50%{
+                transform: scale(1.05);
+            }
+            60%{
+                rotate: 0deg;
+            }
+            100%{
+                transform: scale(1);
+            }
+        }
+
+        .content{
+            width: 40%;
+            height: 300px;
+            position: relative;
+            background-color: rgb(38, 38, 118);
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            border-radius: 20px;
+            box-shadow: 0px 0px 15px rgba(98, 255, 239, 0.667) , inset 0px 0px 20px rgba(98, 255, 239, 0.667);
+            margin: auto;
+            padding: 20px;
+            margin-top: 0px;
+        }
+
+        .wrapper{
+            width: calc(100% - 40px);
+            height: inherit;
+            position: absolute;
+            top:0;
+            display: none;
+            overflow: hidden;
+            padding:20px;
+            left: 0;
+            border-radius: 20px;
+            background-color: rgb(38, 38, 118);
+        }
+
+        h1{
+            font-family: 'Kablammo', cursive;
+            transform: rotate(-90deg);
+            position: absolute;
+            top:120px;
+            font-weight: 200;
+            /* margin: 5px; */
+            left:-143px;
+            color: rgb(196, 196, 196);
+           
+
+        }
+       
+
+       
+        
+    </style>
+</head>
+<body>
+    
+    <!-- <div class="imgFrame">
+        <img src="./images/robo.jpeg"/>
+    </div> -->
+
+    <div class="hero" >
+        <div class="semiCircle">
+        </div>
+        <img src="./images//robo.png" class="imgPng"/>
+    </div>
+
+    <div class="content" > 
+
+        <h1> JOKE GENERATOR</h1>
+       
+       <p id="content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit ratione dicta ducimus nisi id sint ut esse obcaecati officiis, a molestias aliquam ea ipsa laudantium repellendus reiciendis sapiente, libero accusantium. Eveniet veniam sint temporibus sed iusto! Provident, corporis veritatis vero fuga obcaecati dolore beatae aliquam eveniet, autem commodi quos. Adipisci quas, tempore rem, ullam, itaque placeat quasi maiores explicabo vel recusandae aperiam vitae ducimus? Accusamus enim nam consectetur sint eius aperiam, aliquam sit rem, aut aspernatur reiciendis cupiditate quod quam quidem error voluptatem et tempore, unde fugiat dolorem recusandae non.
+        </p> 
+        <div class="wrapper">
+        
+        </div>
+
+    </div>
+   
+
+    <script>
+
+const dadJokes = [
+    {
+        "id": 1,
+        "question": "What did one pirate say to the other when he beat him at chess?",
+        "answer": "Checkmatey"
+    },
+    {
+        "id": 2,
+        "question": "Why did I quit my job at the coffee shop the other day?",
+        "answer": "It was just the same old grind over and over."
+    },
+    {
+        "id": 3,
+        "question": "Why should you never buy anything that has Velcro with it?",
+        "answer": "It's a total rip-off."
+    },
+    {
+        "id": 4,
+        "question": "What is the most groundbreaking invention of all time?",
+        "answer": "The shovel."
+    },
+    {
+        "id": 5,
+        "question": "Did you hear about the famous Italian chef that recently died?",
+        "answer": "He pasta way."
+    },
+    {
+        "id": 6,
+        "question": "What kind of music do astronauts listen to?",
+        "answer": "Neptunes."
+    },
+    {
+        "id": 7,
+        "question": "What do you call Santa’s little helpers?",
+        "answer": "Subordinate clauses."
+    },
+    {
+        "id": 8,
+        "question": "What’s the difference between a hippo and a zippo?",
+        "answer": "One is extremely big and heavy, and the other is a little lighter."
+    },
+    {
+        "id": 9,
+        "question": "Where did Captain Hook get his hook?",
+        "answer": "From the second-hand store."
+    },
+    {
+        "id": 10,
+        "question": "Why did Shakespeare’s wife leave him?",
+        "answer": "She got sick of all the drama."
+    },
+    {
+        "id": 11,
+        "question": "Why should you never write with a dull pencil?",
+        "answer": "It's pointless."
+    },
+    {
+        "id": 12,
+        "question": "How do you get a job at the moisturizer factory?",
+        "answer": "Apply daily."
+    },
+    {
+        "id": 13,
+        "question": "Why did the scarecrow win an award?",
+        "answer": "Because he was outstanding in his field."
+    },
+    {
+        "id": 14,
+        "question": "Did you hear about the cheese factory that exploded in France?",
+        "answer": "There was nothing left but de Brie."
+    },
+    {
+        "id": 15,
+        "question": "What do you get when you cross a snowman with a vampire?",
+        "answer": "Frostbite"
+    }
+];
+
+    var idx = 0;
+
+        const content =  document.getElementById('content');
+
+        content.innerHTML= `<p>${dadJokes[idx].question}<br/><br/>Ans: ${dadJokes[idx].answer}`;
+
+
+        document.addEventListener("scroll",()=>{
+
+        });
+
+        $(document).ready(function(){
+        $(".content").click(function(){
+         $(".wrapper").slideToggle(500,()=>{
+             idx = Math.ceil(Math.random()*dadJokes.length-1);
+            content.innerHTML = `<p>${dadJokes[idx].question}<br/><br/>Ans: ${dadJokes[idx].answer}`;
+         });
+        //   $(".wrapper").fadeToggle(500);
+         $(".wrapper").hide(1000);
+        });
+});
+    </script>
+
+</body>
+</html>
